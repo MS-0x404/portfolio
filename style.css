@@ -57,113 +57,103 @@ body {
 
 
 /* Navigation Styles */
-
 .nav {
-
-    max-width: 1200px;
-
-    margin: auto;
-
-    padding: 2rem 1rem;
-
+    width: 100%;
+    padding: 1.5rem 2rem;
     display: flex;
-
     align-items: center;
-
     justify-content: space-between;
-
-    gap: 2rem;
-
-}
-
-
-
-#logo {
-
-    font-size: 2rem;
-
-    color: #ededed;
-
-    z-index: 1;
-
-}
-
-
-
-.nav-links {
-
-    list-style: none;
-
-    display: flex;
-
-    align-items: center;
-
-    gap: 3rem;
-
-    font-family: 'Poppins', sans-serif;
-
-    z-index: 1;
-
-}
-
-
-
-.link a {
-
+    background: transparent;
     position: relative;
-
-    padding-bottom: 0.75rem;
-
-    color: #fff;
-
-}
-
-
-
-.link a::after {
-
-    content: "";
-
-    position: absolute;
-
-    height: 2px;
-
-    width: 0;
-
-    bottom: 0;
-
-    left: 0;
-
-    background-color: #1d4ed8;
-
+    z-index: 100;
+  }
+  
+  #logo {
+    font-size: 2rem;
+    color: #ededed;
+  }
+  
+  .hamburger {
+    display: none;
+    font-size: 2.5rem;
+    color: white;
+    cursor: pointer;
+    z-index: 1001;
+  }
+  
+  /* NAV LINKS - desktop default */
+  .nav-links {
+    list-style: none;
+    display: flex;
+    align-items: center;
+    gap: 3rem;
+    font-family: 'Poppins', sans-serif;
     transition: all 0.3s ease;
-
-}
-
-
-
-.link a:hover::after {
-
+  }
+  
+  .link a {
+    color: white;
+    position: relative;
+    padding-bottom: 0.5rem;
+  }
+  
+  .link a::after {
+    content: "";
+    position: absolute;
+    height: 2px;
+    width: 0;
+    bottom: 0;
+    left: 0;
+    background-color: #1d4ed8;
+    transition: all 0.3s ease;
+  }
+  
+  .link a:hover::after {
     width: 70%;
-
-}
-
-
-
-.nav img {
-
-    border-radius: 50%; /* Se vuoi un'immagine circolare */
-
-    height: 50px; /* Imposta una dimensione fissa */
-
+  }
+  
+  .nav img {
+    border-radius: 50%;
+    height: 50px;
     width: 50px;
-
-    object-fit: cover; /* Garantisce che l'immagine si adatti correttamente */
-
-}
-
-
-
+    object-fit: cover;
+  }
+  
+  /* === MOBILE VERSION === */
+  @media screen and (max-width: 768px) {
+    .hamburger {
+      display: block;
+    }
+  
+    .nav-links {
+      position: fixed;
+      top: 0;
+      right: -100%;
+      width: 70%;
+      height: 100vh;
+      background-color: #0F172A;
+      flex-direction: column;
+      justify-content: flex-start;
+      align-items: flex-start;
+      padding: 6rem 2rem;
+      gap: 2rem;
+      transition: right 0.4s ease;
+    }
+  
+    .nav-links.active {
+      right: 0;
+      display: flex;
+    }
+  
+    .nav {
+      flex-wrap: wrap;
+    }
+  
+    .nav img {
+      display: none;
+    }
+  }
+  
 
 
 /* Header Styles */

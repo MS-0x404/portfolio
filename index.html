@@ -18,7 +18,12 @@
         <div class="nav-logo">
             <a href="#" id="logo">MS</a>
         </div>
-        <ul class="nav-links">
+
+        <div class="hamburger" id="hamburger">
+            <i class='bx bx-menu' id="menu-icon"></i>
+          </div>
+
+        <ul class="nav-links" id="nav-links">
             <li class="link"><a href="#">Home</a></li>
             <li id="#features" class="link"><a href="#about">About Me</a></li>
             <li id="link2" class="link"><a href="#projects">Projects</a></li>
@@ -272,7 +277,36 @@
 
 
 
-
+    <script>
+        const hamburger = document.getElementById('hamburger');
+        const navLinks = document.getElementById('nav-links');
+        const menuIcon = document.getElementById('menu-icon');
+        const links = document.querySelectorAll('.nav-links a');
+      
+        hamburger.addEventListener('click', () => {
+          navLinks.classList.toggle('active');
+          hamburger.classList.toggle('active');
+          toggleIcon();
+        });
+      
+        links.forEach(link => {
+          link.addEventListener('click', () => {
+            navLinks.classList.remove('active');
+            hamburger.classList.remove('active');
+            resetIcon();
+          });
+        });
+      
+        function toggleIcon() {
+          menuIcon.classList.toggle('bx-menu');
+          menuIcon.classList.toggle('bx-x');
+        }
+      
+        function resetIcon() {
+          menuIcon.classList.remove('bx-x');
+          menuIcon.classList.add('bx-menu');
+        }
+    </script>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/particles.js/2.0.0/particles.min.js"></script>
 
