@@ -41,40 +41,44 @@
     </header>
 
 
-    <section id="about">
-        <div class="about-content">
-            <div class="about-text">
-                <h1>Matteo Salis</h1>
+<section id="about">
+    <div class="about-content">
+        <div class="about-text">
+            <h1>Matteo Salis</h1>
+            <p>
+                Hey, how are you? I'm Matteo Salis, I'm 20 years old and since I was a child I've had a passion for computers, I've always loved tinkering with PCs, smartphones, in short, everything that had to do with technology.
+                I was a real "computer genius" if you can say so. 
+            </p>
+            <div id="more-text" style="display: none;">
                 <p>
-                    Hey, how are you? I'm Matteo Salis, I'm 20 years old and since I was a child I've had a passion for computers, I've always loved tinkering with PCs, smartphones, in short, everything that had to do with technology.
-                    I was a real "computer genius" if you can say so. 
-                </p>
-                <p>I
-                   loved solving any kind of problem, whether it was fixing grandma's phone or more complicated things. If I didn't find a solution right away, I would stay there for hours, because that was the only priority at that moment.
+                    I loved solving any kind of problem, whether it was fixing grandma's phone or more complicated things. If I didn't find a solution right away, I would stay there for hours, because that was the only priority at that moment.
                 </p>
                 <p>
                     I don't let anyone get me down, at least not by a problem that might seem simple. And even today, if I find myself faced with a problem that I don't know how to solve, rest assured that I will never say "I don't know how to do it", but I will find a solution, at all costs.
-                </p>  
-                <div class="about-stats">
-                    <div class="stat-card">
-                        <span class="stat-number">4+</span>
-                        <span class="stat-label">Years of Coding</span>
-                    </div>
-                    <div class="stat-card">
-                        <span class="stat-number">24/7</span>
-                        <span class="stat-label">On the Rise</span>
-                    </div>
-                </div>
+                </p>
             </div>
-            <div class="about-logo">
-                <div class="circle-container">
-                    <div class="logo-content">
-                        <img src="./images/me.jpg" alt="">
-                    </div>
+            <a href="#" id="read-more-link" onclick="toggleAboutText(event)">Read more</a>
+
+            <div class="about-stats">
+                <div class="stat-card">
+                    <span class="stat-number">4+</span>
+                    <span class="stat-label">Years of Coding</span>
+                </div>
+                <div class="stat-card">
+                    <span class="stat-number">24/7</span>
+                    <span class="stat-label">On the Rise</span>
                 </div>
             </div>
         </div>
-    </section>
+        <div class="about-logo">
+            <div class="circle-container">
+                <div class="logo-content">
+                    <img src="./images/me.jpg" alt="">
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
 
     
 
@@ -191,7 +195,21 @@
 
 
 
-
+    
+    <script>
+        function toggleAboutText(event) {
+            event.preventDefault();
+            const moreText = document.getElementById("more-text");
+            const link = document.getElementById("read-more-link");
+            if (moreText.style.display === "none") {
+                moreText.style.display = "block";
+                link.textContent = "Read less";
+            } else {
+                moreText.style.display = "none";
+                link.textContent = "Read more";
+            }
+        }
+    </script>
 
 
 
