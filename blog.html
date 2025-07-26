@@ -26,6 +26,112 @@
     <hr class="container mx-auto p-12">
 
     <section class="w-full max-w-4xl px-4 md:px-6 py-10 mx-auto">
+        <p class="text-sm text-neutral-400 italic mb-4">Pubblicato il 26 Luglio 2025</p>
+        <div class="w-full h-80 md:h-[28rem] bg-center bg-no-repeat bg-cover mb-12 rounded-2xl shadow-xl border border-neutral-700" style="background-image: url('images/sharepoint.png');"></div>
+        <h1 class="text-4xl font-bold mb-4 text-start">ToolShell: La vulnerabilità zero-day di SharePoint che ha scosso il mondo IT</h1>
+        
+        <p class="text-xl leading-relaxed mb-6">
+            Una delle vulnerabilità più critiche degli ultimi anni ha colpito Microsoft SharePoint Server. <strong>ToolShell</strong>, con punteggio CVSS 9.8, è stata aggiunta al catalogo CISA delle vulnerabilità attivamente sfruttate, costringendo Microsoft a rilasciare patch di emergenza fuori dal normale ciclo mensile.
+        </p>
+    
+        <p class="text-xl leading-relaxed mb-6">
+            <strong>CVE-2025-53770</strong> non è una vulnerabilità isolata, ma il cuore di una sofisticata catena di exploit che ha permesso agli attaccanti di compromettere migliaia di server SharePoint in tutto il mondo senza alcuna autenticazione.
+        </p>
+    
+        <div class="bg-red-900/30 border border-red-600 text-red-200 text-base rounded-xl px-4 py-4 mb-6">
+            <strong>⚠️ ALLERTA CRITICA:</strong> Circa 10.000 organizzazioni potrebbero essere a rischio. Gli attacchi sono iniziati il 7 luglio 2025, principalmente attribuiti a gruppi APT cinesi.
+        </div>
+    
+        <h2 class="text-2xl font-semibold mt-8 mb-4">Come Funziona l'Attacco ToolShell</h2>
+        
+        <p class="text-xl leading-relaxed mb-6">
+            ToolShell sfrutta una catena di 4 vulnerabilità che permette agli attaccanti di:
+        </p>
+    
+        <ul class="list-disc pl-6 mb-6 text-lg">
+            <li><strong>Bypassare l'autenticazione</strong> completamente (CVE-2025-49706)</li>
+            <li><strong>Eseguire codice remoto</strong> attraverso l'endpoint <code class="bg-neutral-700 px-2 py-1 rounded">/_layouts/15/</code> (CVE-2025-53770)</li>
+            <li><strong>Rubare chiavi crittografiche</strong> per mantenere accesso persistente (CVE-2025-53771)</li>
+            <li><strong>Impersonare utenti legittimi</strong> anche dopo l'applicazione delle patch (CVE-2025-49704)</li>
+        </ul>
+    
+        <h2 class="text-2xl font-semibold mt-8 mb-4">Timeline dell'Attacco</h2>
+        
+        <div class="bg-neutral-800 border border-neutral-600 rounded-xl p-6 mb-6">
+            <div class="space-y-4">
+                <div class="flex items-start gap-3">
+                    <div class="text-blue-400 font-semibold min-w-[100px]">7 Luglio</div>
+                    <div>Prime exploitation in the wild identificate</div>
+                </div>
+                <div class="flex items-start gap-3">
+                    <div class="text-blue-400 font-semibold min-w-[100px]">19 Luglio</div>
+                    <div>Microsoft rilascia patch di emergenza fuori banda</div>
+                </div>
+                <div class="flex items-start gap-3">
+                    <div class="text-blue-400 font-semibold min-w-[100px]">20 Luglio</div>
+                    <div>CVE-2025-53770 aggiunta al catalogo CISA KEV</div>
+                </div>
+                <div class="flex items-start gap-3">
+                    <div class="text-red-400 font-semibold min-w-[100px]">22 Luglio</div>
+                    <div>Osservazioni di ransomware Warlock sui sistemi compromessi</div>
+                </div>
+            </div>
+        </div>
+    
+        <h2 class="text-2xl font-semibold mt-8 mb-4">Come Verificare se Sei Stato Compromesso</h2>
+        
+        <p class="text-xl leading-relaxed mb-4">
+            Controlla immediatamente i tuoi sistemi SharePoint per questi indicatori:
+        </p>
+    
+        <ul class="list-disc pl-6 mb-6 text-lg">
+            <li><strong>File .aspx sospetti</strong> in directory SharePoint (error.aspx, default.aspx)</li>
+            <li><strong>Richieste POST anomale</strong> all'endpoint <code class="bg-neutral-700 px-2 py-1 rounded">/_layouts/15/</code> nei log</li>
+            <li><strong>Web shell PowerShell</strong> con timestamp durante orari non lavorativi</li>
+            <li><strong>Accessi non autorizzati</strong> a contenuti riservati</li>
+            <li><strong>Modifiche alle chiavi crittografiche</strong> senza autorizzazione</li>
+        </ul>
+    
+        <h2 class="text-2xl font-semibold mt-8 mb-4">Azioni Immediate da Intraprendere</h2>
+    
+        <div class="bg-green-900/30 border border-green-600 text-green-200 rounded-xl px-4 py-4 mb-6">
+            <strong>🛡️ CHECKLIST DI SICUREZZA:</strong>
+            <ul class="list-disc pl-6 mt-3 space-y-2">
+                <li>Applicare immediatamente tutte le patch di luglio 2025</li>
+                <li>Verificare l'integrità delle chiavi crittografiche SharePoint</li>
+                <li>Implementare monitoraggio specifico per l'endpoint <code class="bg-green-800 px-1 rounded">/_layouts/15/</code></li>
+                <li>Considerare la segmentazione di rete per isolare SharePoint</li>
+                <li>Configurare Web Application Firewall con regole anti-exploit</li>
+            </ul>
+        </div>
+    
+        <h2 class="text-2xl font-semibold mt-8 mb-4">L'Impatto a Lungo Termine</h2>
+        
+        <p class="text-xl leading-relaxed mb-6">
+            ToolShell rappresenta un punto di svolta nella sicurezza SharePoint. La sofisticazione dell'attacco e la sua capacità di mantenere persistenza anche dopo il patching dimostrano l'evoluzione delle tecniche di compromissione.
+        </p>
+    
+        <p class="text-xl leading-relaxed mb-6">
+            <strong>Il messaggio è chiaro:</strong> non è sufficiente applicare patch reattivamente. Serve un approccio proattivo con threat hunting, monitoraggio continuo e strategie di Zero Trust per proteggere le infrastrutture critiche.
+        </p>
+    
+        <div class="bg-neutral-800 text-neutral-200 text-base rounded-xl px-4 py-4 mb-6 border border-neutral-600">
+            <strong>💡 Takeaway importante:</strong><br>
+            Se la tua organizzazione utilizza SharePoint on-premises, questo non è solo un aggiornamento di sicurezza - è un wake-up call per rivedere completamente la postura di sicurezza della tua infrastruttura.
+        </div>
+    
+        <h2 class="text-2xl font-semibold mt-8 mb-4">Fonti Ufficiali:</h2>
+        <ul class="list-disc pl-6 mb-6">
+            <li><strong>Microsoft Security Response Center:</strong> <a href="https://msrc.microsoft.com/update-guide/vulnerability/CVE-2025-53770" target="_blank" rel="noopener noreferrer" class="underline text-blue-400">Advisory CVE-2025-53770</a></li>
+            <li><strong>CISA KEV Catalog:</strong> <a href="https://www.cisa.gov/known-exploited-vulnerabilities-catalog" target="_blank" rel="noopener noreferrer" class="underline text-blue-400">Known Exploited Vulnerabilities</a></li>
+            <li><strong>Eye Security:</strong> <a href="https://www.eye.security" target="_blank" rel="noopener noreferrer" class="underline text-blue-400">Ricerca originale ToolShell</a></li>
+        </ul>
+    
+    </section>
+
+    <hr class="container mx-auto p-12">
+
+    <section class="w-full max-w-4xl px-4 md:px-6 py-10 mx-auto">
       <p class="text-sm text-neutral-400 italic mb-4">Pubblicato il 21 Luglio 2025</p>
       <div class="w-full h-80 md:h-[28rem] bg-center bg-no-repeat bg-cover mb-12 rounded-2xl shadow-xl border border-neutral-700" style="background-image: url('images/google.png');"></div>
       <h1 class="text-4xl font-bold mb-4 text-start">Google Texas Settlement: Il Vero Costo della Privacy nel 2025</h1>
