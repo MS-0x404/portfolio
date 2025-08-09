@@ -26,6 +26,87 @@
     <hr class="container mx-auto p-12">
 
     <section class="w-full max-w-4xl px-4 md:px-6 py-10 mx-auto">
+    <p class="text-sm text-neutral-400 italic mb-4">Pubblicato il 9 Agosto 2025</p>
+    <div class="w-full h-80 md:h-[28rem] bg-center bg-no-repeat bg-cover mb-12 rounded-2xl shadow-xl border border-neutral-700" style="background-image: url('images/winrar_vuln.png');"></div>
+    <h1 class="text-4xl font-bold mb-4 text-start">WinRAR apre il vaso di Pandora: nuove vulnerabilità path-traversal in agguato</h1>
+    
+    <p class="text-xl leading-relaxed mb-6">
+        Ancora una volta, WinRAR torna sotto i riflettori della cybersecurity per motivi tutt'altro che celebrativi. Due nuove falle critiche — **CVE-2025-6218** e **CVE-2025-8088** — stanno mettendo a rischio centinaia di milioni di utenti.
+    </p>
+
+    <h2 class="text-2xl font-semibold mt-8 mb-4">Cosa è successo (in breve)</h2>
+    <ul class="list-disc pl-6 mb-6 text-lg">
+        <li><strong>CVE-2025-6218</strong>: directory traversal che permette l’esecuzione di codice locale via archivi malevoli — patchata nella <code class="bg-neutral-700 px-2 py-1 rounded">v7.12 Beta 1</code> (rilasciata il 10 giugno 2025) :contentReference[oaicite:2]{index=2};</li>
+        <li><strong>CVE-2025-8088</strong>: path traversal scoperta da ESET; permette l’esecuzione arbitraria di codice via file RAR manipolati. CVSS 4.0: **8.4 (High)** :contentReference[oaicite:3]{index=3}.</li>
+    </ul>
+
+    <div class="bg-red-900/30 border border-red-600 text-red-200 text-base rounded-xl px-4 py-4 mb-6">
+        <strong>⚠️ ALLERTA URGENTE:</strong> Queste vulnerabilità sono già exploit-abili nella pratica e colpiscono anche versioni “ancora supportate” di WinRAR.
+    </div>
+
+    <h2 class="text-2xl font-semibold mt-8 mb-4">Come funzionano gli attacchi</h2>
+    <p class="text-xl leading-relaxed mb-6">
+        In entrambi i casi l’attaccante necessita che la vittima apra un archivio — via phishing o distribuzione malware. L’archivio contiene percorsi come **../** che fanno estrarre i file in cartelle sensibili (es. Windows Start-up), permettendo esecuzione automatica di codice maligno :contentReference[oaicite:4]{index=4}.
+    </p>
+
+    <h2 class="text-2xl font-semibold mt-8 mb-4">Timeline rilevante</h2>
+    <div class="bg-neutral-800 border border-neutral-600 rounded-xl p-6 mb-6">
+        <div class="space-y-4">
+        <div class="flex items-start gap-3">
+            <div class="text-blue-400 font-semibold min-w-[100px]">10 Giugno</div>
+            <div>Pubblicata patch Beta 7.12 che risolve CVE-2025-6218</div>
+        </div>
+        <div class="flex items-start gap-3">
+            <div class="text-blue-400 font-semibold min-w-[100px]">20 Giugno</div>
+            <div>NVD pubblica dettagli ufficiali su CVE-2025-6218</div>
+        </div>
+        <div class="flex items-start gap-3">
+            <div class="text-red-400 font-semibold min-w-[100px]">8 Agosto</div>
+            <div>CVE-2025-8088 aggiunta da ESET al NVD con punteggio 8.4 High</div>
+        </div>
+        </div>
+    </div>
+
+    <h2 class="text-2xl font-semibold mt-8 mb-4">Verifica se sei vulnerabile</h2>
+    <ul class="list-disc pl-6 mb-6 text-lg">
+        <li>Versione WinRAR installata è ≤ 7.11*</li>
+        <li>Hai aperto archivi da fonti non sicure o email sospette</li>
+        <li>File estratti appaiono in cartelle sorprendenti (es: Autostart)</li>
+    </ul>
+    <p class="text-xs text-neutral-400 italic">*Anche versioni beta vecchie o copie offline rientrano nel rischio</p>
+
+    <h2 class="text-2xl font-semibold mt-8 mb-4">Checklist difensiva immediata</h2>
+    <div class="bg-green-900/30 border border-green-600 text-green-200 rounded-xl px-4 py-4 mb-6">
+        <strong>🛡️ COSA FARE SUBITO:</strong>
+        <ul class="list-disc pl-6 mt-3 space-y-2">
+        <li>Aggiorna immediatamente a <strong>WinRAR 7.12 (o superiore)</strong> — la patch per CVE-2025-6218 è già disponibile</li>
+        <li>Evita di aprire archivi da mittenti sospetti o su siti non verificati</li>
+        <li>Usa sandbox o VM per testare archivi sospetti</li>
+        <li>Rendi più robusti i permessi su directory critiche (es. %AppData%\\Roaming\\Microsoft\\Windows\\Start Menu)</li>
+        <li>Monitora accessi e creazioni file inconsuete via EDR o antivirus avanzato</li>
+        </ul>
+    </div>
+
+    <h2 class="text-2xl font-semibold mt-8 mb-4">Perché è importante</h2>
+    <p class="text-xl leading-relaxed mb-6">
+        WinRAR continua a essere uno dei tool di compressione più utilizzati al mondo. Questo doppio “colpo” evidenzia quanto anche software apparentemente semplici possano diventare un ingresso per attacchi sofisticati. In un’era dove l’ingegneria sociale è asservita all’exploit tecnico, ribadisco la mia posizione: **non basta aggiornare: serve un approccio informato, proattivo e zero trust**, anche per un archiviatore.
+    </p>
+
+    <div class="bg-neutral-800 text-neutral-200 text-base rounded-xl px-4 py-4 mb-6 border border-neutral-600">
+        <strong>💡 Takeaway:</strong><br>
+        Se usi WinRAR su Windows, **questo non è un semplice update di routine**. È una chiamata d’allarme per rivedere le procedure di apertura, verifica e trattamento dei file compressi.
+    </div>
+
+    <h2 class="text-2xl font-semibold mt-8 mb-4">Fonti ufficiali</h2>
+    <ul class="list-disc pl-6 mb-6">
+        <li><strong>NVD — CVE-2025-6218:</strong><a href="https://nvd.nist.gov/vuln/detail/CVE-2025-6218" target="_blank" rel="noopener noreferrer" class="underline text-blue-400">Advisory CVE-2025-6218</a></li>
+        <li><strong>NVD — CVE-2025-8088:</strong><a href="https://nvd.nist.gov/vuln/detail/CVE-2025-8088" target="_blank" rel="noopener noreferrer" class="underline text-blue-400">Advisory CVE-2025-8088</a></li>
+    </ul>
+    </section>
+
+    <hr class="container mx-auto p-12">
+
+    <section class="w-full max-w-4xl px-4 md:px-6 py-10 mx-auto">
         <p class="text-sm text-neutral-400 italic mb-4">Pubblicato il 26 Luglio 2025</p>
         <div class="w-full h-80 md:h-[28rem] bg-center bg-no-repeat bg-cover mb-12 rounded-2xl shadow-xl border border-neutral-700" style="background-image: url('images/sharepoint.png');"></div>
         <h1 class="text-4xl font-bold mb-4 text-start">ToolShell: La vulnerabilità zero-day di SharePoint che ha scosso il mondo IT</h1>
